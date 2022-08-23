@@ -37,7 +37,7 @@ const joiTransactionSchema = Joi.object({
 
 
 const Transaction = model('transaction', transactionSchema);
-console.log(Transaction)
+
 
 module.exports = {
     Transaction, 
