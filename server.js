@@ -1,5 +1,17 @@
-const app = require('./app')
+const app = require('./app');
+const mongoose = require('mongoose');
+const { DBHOST, PORT = 3001 } = process.env;
 
-app.listen(3000, () => {
-  console.log("Server running. Use our API on port: 3000")
-})
+
+
+mongoose
+.connect(DBHOST)
+    .then(app.listen(PORT))
+    .then(() => {
+        console.log(`Database connected`)
+        console.log(`Server run on port ${PORT}`)
+    })
+    .catch(error => () => {
+        console.log(error)
+        process.exit(1)
+    });

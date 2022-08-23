@@ -1,10 +1,16 @@
+const dotenv = require('dotenv');
 const express = require('express')
 const logger = require('morgan')
 const cors = require('cors')
 
-const contactsRouter = require('./routes/api/contacts')
+dotenv.config();
+
+const transactionsRouter = require('./routes/transactionsRoutes')
+const userRouter = require('./routes/userRoutes');
 
 const app = express()
+
+
 
 const formatsLogger = app.get('env') === 'development' ? 'dev' : 'short'
 
@@ -12,14 +18,32 @@ app.use(logger(formatsLogger))
 app.use(cors())
 app.use(express.json())
 
-app.use('/api/contacts', contactsRouter)
+
+
+app.use('/transactions', transactionsRouter);
+
+app.use('/user', userRouter);
+
+app.get('/test', (req, res) => {
+    res.json({meassage: "test passed"})
+});
+
+
 
 app.use((req, res) => {
-  res.status(404).json({ message: 'Not found' })
+  console.log("my server error")
+  res.status(404).json({
+      message: "No Routes Matched"
+  })
 })
 
+
+
 app.use((err, req, res, next) => {
-  res.status(500).json({ message: err.message })
+  const {status = 500, message = "Eyeshield Server Error"} = err;
+
+  console.log(`Зара буде помилка з обробника помилок app(1,2,3,4)`, message, status);
+  res.status(status).json({ message })
 })
 
 module.exports = app
