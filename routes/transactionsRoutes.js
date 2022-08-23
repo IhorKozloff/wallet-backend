@@ -3,7 +3,7 @@ const router = express.Router();
 const ctrl = require('../controllers/transactions');
 const { ctrlWrapper } = require('../helpers');
 
-router.get('/all', ctrl.getAllTransactions);
+router.get('/all', ctrlWrapper(ctrl.getAllTransactions));
 
 router.post('/add', ctrlWrapper(ctrl.addTransactions));
 
