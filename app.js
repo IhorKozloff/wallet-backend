@@ -8,17 +8,19 @@ dotenv.config();
 const transactionsRouter = require('./routes/transactionsRoutes')
 const userRouter = require('./routes/userRoutes');
 
-const app = express()
+const app = express();
 
+const corsOptions ={
+  origin:'http://localhost:3000', 
+  credentials:true,
+  optionSuccessStatus:200
+}
 
 
 const formatsLogger = app.get('env') === 'development' ? 'dev' : 'short'
 
 app.use(logger(formatsLogger))
-app.use(cors({
-  origin: "http://localhost:3000",
-  credentials: true
-}))
+app.use(cors(corsOptions))
 app.use(express.json())
 
 
