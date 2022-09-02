@@ -16,7 +16,7 @@ const formatsLogger = app.get('env') === 'development' ? 'dev' : 'short'
 
 app.use(logger(formatsLogger))
 app.use(cors({
-  origin: "http://localhost",
+  origin: "http://localhost:3000",
 }))
 app.use(express.json())
 
