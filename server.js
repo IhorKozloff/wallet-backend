@@ -10,9 +10,10 @@ mongoose
         console.log(`Database connected`)
         console.log(`Server run on port ${PORT}`)
     })
-    .catch(error => () => {
-        console.log(error)
-        process.exit(1)
+    .catch(() => () => {
+        console.log(`Не запустилось ничего, ошибка какая-то`)
+        // console.log(error)
+        // process.exit(1)
     });
 
     
