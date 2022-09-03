@@ -3,7 +3,7 @@ const {Schema, model} = require("mongoose");
 
 const transactionSchema = Schema({
     date: {
-       type: String,
+       type: Object,
        required: true
     },
     type: {
