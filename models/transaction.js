@@ -13,7 +13,7 @@ const transactionSchema = Schema({
     },
     category: {
         type: String,
-        enum: ['main', 'house', 'children', 'development', 'food', 'basic', 'products', 'car', 'health', 'child care', 'household', 'education', 'leisure', 'other'],
+        enum: ['main', 'house', 'children', 'development', 'food', 'basic', 'products', 'car', 'health', 'child care', 'household', 'education', 'leisure', 'other', 'salary'],
         required: true,
     },
     comment: {
