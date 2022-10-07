@@ -27,7 +27,7 @@ const transactionSchema = Schema({
     }
 }, {versionKey: false, timestamps: true});
 
-const joiTransactionSchema = Joi.object({
+const joiAddTransactionSchema = Joi.object({
     date: Joi.string().required(),
     type: Joi.string().required(),
     category: Joi.string().required(),
@@ -41,5 +41,5 @@ const Transaction = model('transaction', transactionSchema);
 
 module.exports = {
     Transaction, 
-    joiTransactionSchema
+    joiAddTransactionSchema
 };

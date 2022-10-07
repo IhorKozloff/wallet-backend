@@ -47,7 +47,7 @@ app.use((req, res) => {
 app.use((err, req, res, next) => {
   const {status = 500, message = "Eyeshield Server Error"} = err;
 
-  console.log(`Зара буде помилка з обробника помилок app(1,2,3,4)`, message, status);
+  console.log(`Зара буде помилка з обробника помилок:`, message, status);
   res.status(status).json({ message })
 })
 
