@@ -12,10 +12,10 @@ userRouter.post(
     ctrlWrapper(ctrl.register)
 );
 
-userRouter.post('/login', (req, res) => {
-    console.log("add transaction")
-    res.send('User Login protocol activated')
-})
+userRouter.post('/login',
+    validateBody(schemas.login), 
+    ctrlWrapper(ctrl.login)
+);
 
 
 module.exports = userRouter;

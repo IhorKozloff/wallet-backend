@@ -19,7 +19,6 @@ const userSchema = Schema({
         type: String,
         required: true,
         minlength: 6,
-        maxlength: 16
     }
 }, {versionKey: false, timestamps: true});
 
@@ -30,9 +29,15 @@ const register = Joi.object({
     email: Joi.string().pattern(emailRegexp).required(),
     password: Joi.string().min(6).max(16).required()
 })
+const login = Joi.object({
+
+    email: Joi.string().pattern(emailRegexp).required(),
+    password: Joi.string().min(6).max(16).required()
+})
 
 const schemas = {
-    register
+    register,
+    login
 }
 module.exports = {
     User,
