@@ -24,11 +24,15 @@ const transactionSchema = Schema({
     sum: {
         type: Number,
         required: true
+    },
+    owner: {
+        type: Schema.Types.ObjectId,
+        ref: "user"
     }
 }, {versionKey: false, timestamps: true});
 
 const joiAddTransactionSchema = Joi.object({
-    date: Joi.string().required(),
+    date: Joi.object().required(),
     type: Joi.string().required(),
     category: Joi.string().required(),
     comment: Joi.string(),
