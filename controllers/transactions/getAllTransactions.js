@@ -7,7 +7,7 @@ const getAllTransactions = async (req, res, next) => {
     res.json({
         status: "success",
         code: 200,
-        result: {...transactions}
+        result: [...transactions]
     })
 }
 
