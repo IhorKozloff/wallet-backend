@@ -3,7 +3,7 @@ const userRouter = express.Router();
 const { ctrlWrapper } = require('../helpers');
 const ctrl = require('../controllers/user');
 
-const { validateBody } = require("../middlewares");
+const { validateBody, isUserAuthorized } = require("../middlewares");
 const { schemas } = require("../models/user");
 
 userRouter.post(
@@ -16,6 +16,7 @@ userRouter.post('/login',
     validateBody(schemas.login), 
     ctrlWrapper(ctrl.login)
 );
+userRouter.get('/logout', isUserAuthorized, ctrlWrapper(ctrl.logout))
 
 
 module.exports = userRouter;
