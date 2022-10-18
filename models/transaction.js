@@ -18,8 +18,6 @@ const transactionSchema = Schema({
     },
     comment: {
         type: String,
-        default: '-',
-        required: false
     },
     sum: {
         type: Number,
