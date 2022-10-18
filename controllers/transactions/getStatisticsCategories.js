@@ -6,6 +6,7 @@ const getStatisticsCategories = async (req, res, next) => {
     console.log(month, year)
     
     let result = '';
+    const noIncomeSumObj = {_id: "incomeSum", total: 0};
 
     if( month === 'all' && year === 'all' ) {
 
@@ -22,7 +23,7 @@ const getStatisticsCategories = async (req, res, next) => {
 
         result = {
             expense,
-            income: income || {total: 0}
+            income: income || noIncomeSumObj
         }
     }
     if (month !== 'all' && year === 'all') {
@@ -41,7 +42,7 @@ const getStatisticsCategories = async (req, res, next) => {
 
         result = {
             expense,
-            income: income || {total: 0}
+            income: income || noIncomeSumObj
         }
     }
      if (month === 'all' && year !== 'all') {
@@ -59,7 +60,7 @@ const getStatisticsCategories = async (req, res, next) => {
         
         result = {
             expense,
-            income: income || {total: 0}
+            income: income || noIncomeSumObj
         }
     }
     if (month !== 'all' && year !== 'all') {
@@ -77,7 +78,7 @@ const getStatisticsCategories = async (req, res, next) => {
         
         result = {
             expense,
-            income: income || {total: 0}
+            income: income || noIncomeSumObj
         }
     }
 
