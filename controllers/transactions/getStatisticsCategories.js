@@ -77,7 +77,7 @@ const getStatisticsCategories = async (req, res, next) => {
         
         result = {
             expense,
-            income
+            income: income || 0
         }
     }
 
