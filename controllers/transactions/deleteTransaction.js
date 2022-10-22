@@ -5,6 +5,7 @@ const { createError } = require('../../helpers');
 const deleteTransaction = async (req, res, next) => {
 
     const { id } = req.params;
+
     const removingItem = await Transaction.findByIdAndRemove(id);
     
     if (!removingItem) {

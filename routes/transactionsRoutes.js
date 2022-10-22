@@ -10,7 +10,7 @@ router.get('/categories', isUserAuthorized, ctrlWrapper(ctrl.getStatisticsCatego
 
 router.post('/add', isUserAuthorized, validateBody(joiAddTransactionSchema), ctrlWrapper(ctrl.addTransactions));
 
-router.delete('/:id', ctrlWrapper(ctrl.deleteTransaction));
+router.delete('/remove/:id', isUserAuthorized, ctrlWrapper(ctrl.deleteTransaction));
 
 
 
