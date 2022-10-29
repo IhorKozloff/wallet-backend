@@ -7,6 +7,7 @@ dotenv.config();
 
 const transactionsRouter = require('./routes/transactionsRoutes')
 const userRouter = require('./routes/userRoutes');
+const dragonReviewerUserDataRouter = require('./routes/dragonReviewerUserDataRouter');
 
 const app = express();
 
@@ -29,10 +30,7 @@ app.use('/transactions', transactionsRouter);
 
 app.use('/user', userRouter);
 
-app.get('/test', (req, res) => {
-    res.json({meassage: "test passed"})
-});
-
+app.use('/dragon', dragonReviewerUserDataRouter);
 
 
 app.use((req, res) => {
